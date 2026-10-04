@@ -1,0 +1,6 @@
+html,body{margin:0;min-height:100%;background:#000;color:#aaa;color-scheme:dark}
+.sky-status{position:fixed;top:45%;left:0;right:0;text-align:center;font:18px Arial,sans-serif}
+.sky-return{position:fixed;bottom:max(30px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);color:#aaa;font:16px Arial,sans-serif;padding:14px}
+body #violet-contour{background:#000;display:grid;place-items:center;z-index:4}
+#violet-contour::after{display:none}
+#violet-contour .finished-contour{width:min(64vw,320px);max-height:65svh;stroke:#b587ff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px #8555bc66);pointer-events:none}

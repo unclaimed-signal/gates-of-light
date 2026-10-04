@@ -1,0 +1,21 @@
+.sun-finale{position:fixed;inset:0;z-index:50;background:#000;color:#f3f1e9;overflow:hidden;isolation:isolate}
+.passage-shadow-link{position:absolute;left:50%;top:14%;width:min(30vw,270px);height:47svh;transform:translateX(-50%);z-index:3;background:transparent;border:0;cursor:pointer}
+.sun-finale .passage-shadow-link,.sun-finale .passage-shadow-link:hover:not(:disabled),.sun-finale .passage-shadow-link:active,.sun-finale .passage-shadow-link:focus{appearance:none;-webkit-appearance:none;background:transparent;border:0;box-shadow:none;padding:0;transition:none;-webkit-tap-highlight-color:transparent}
+.passage-shadow-link:disabled{visibility:hidden;pointer-events:none}
+.passage-shadow-link:focus-visible{outline:1px solid #fff4;outline-offset:5px}
+.passage-date{position:absolute;left:50%;top:10%;transform:translateX(-50%);margin:0;z-index:4;font:clamp(24px,4vw,38px) Arial,sans-serif;letter-spacing:.08em;color:#fff;text-shadow:0 0 12px #fff7;pointer-events:none}
+.passage-light{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.passage-gate{position:absolute;left:50%;top:13%;width:min(83vw,1150px);max-height:46svh;object-fit:contain;transform:translateX(-50%);opacity:0}
+[data-finale-scene=passage] .passage-gate{opacity:1;animation:passage-gate 5.2s ease-in forwards}
+.passage-shadow{position:absolute;left:50%;top:8%;width:min(72vw,640px);height:68svh;object-fit:contain;transform:translateX(-50%);opacity:0;pointer-events:none}
+[data-finale-scene=white]{background:#fffdf4;transition:background .5s}
+[data-finale-scene=warning] .passage-shadow{animation:passage-figure 9.6s ease both}
+.passage-caption{position:absolute;left:50%;bottom:19%;transform:translateX(-50%);width:min(90%,870px);text-align:center;font-family:Arial,sans-serif;font-weight:400;font-size:clamp(22px,3.1vw,38px);line-height:1.45;text-shadow:0 0 3px #fff8,0 0 13px #fff5;white-space:pre-line;margin:0;z-index:3}
+.passage-dock{position:absolute;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:10px;width:min(90%,600px);z-index:5}
+.passage-dock button{flex:1;min-height:44px;background:#070707b8;border:1px solid #605944;color:#e6dec9;border-radius:2px;font:16px Arial,sans-serif;cursor:pointer}
+.sun-finale[data-paused=true] img{animation-play-state:paused}
+[data-finale-scene=white] .passage-dock button{color:#5d543f;background:#ffffff88}
+@keyframes passage-gate{0%,55%{filter:brightness(1);transform:translateX(-50%) scale(1)}85%{filter:brightness(1.6);opacity:1}100%{filter:brightness(3);transform:translateX(-50%) scale(1.13);opacity:0}}
+@keyframes passage-figure{0%{opacity:0;filter:blur(9px)}20%,82%{opacity:.65;filter:blur(1px)}100%{opacity:0;filter:blur(4px)}}
+@media(max-width:600px){.passage-gate{top:21%;width:96vw}.passage-shadow{height:58svh;top:8%}.passage-caption{bottom:21%;font-size:23px}.passage-dock{gap:6px}}
+@media(prefers-reduced-motion:reduce){[data-finale-scene=passage] .passage-gate{animation:none;opacity:1}[data-finale-scene=warning] .passage-shadow{animation:none;opacity:.6}[data-finale-scene=white]{transition:none}}
