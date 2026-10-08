@@ -1,5 +1,5 @@
 // client/event-stream.js
-async function readEventStream(response, { signal, onEvent }) {
+async function readEventStream(response, { signal, onEvent, onActivity }) {
   if (!response.ok || !response.body || !response.headers.get("Content-Type")?.startsWith("text/event-stream")) throw new Error("CONNECTION");
   const reader = response.body.getReader(), decoder = new TextDecoder();
   let pending = "", data = [], type = "message";
@@ -21,6 +21,7 @@ async function readEventStream(response, { signal, onEvent }) {
   try {
     while (!signal?.aborted) {
       const { value, done } = await reader.read();
+      if (!done && value?.length) onActivity?.();
       pending += done ? decoder.decode() : decoder.decode(value, { stream: true });
       if (pending.length + data.reduce((n, s) => n + s.length, 0) > 65536) throw new Error("CONNECTION");
       let i;
@@ -106,8 +107,20 @@ function createBearerApi({ onSnapshot, onConnection, onExpired, onRoomClosed }, 
     if (generation !== serial || document.hidden) return;
     controller = new AbortController();
     const signal = controller.signal;
+    const streamController = new AbortController();
+    let idleTimer;
+    const cancelStream = () => {
+      clearTimeout(idleTimer);
+      streamController.abort();
+    };
+    signal.addEventListener("abort", cancelStream, { once: true });
+    const activity = () => {
+      clearTimeout(idleTimer);
+      if (!signal.aborted) idleTimer = setTimeout(() => streamController.abort(), 45e3);
+    };
+    activity();
     try {
-      const response = await raw(`/api/rooms/${id}/events`, { signal });
+      const response = await raw(`/api/rooms/${id}/events`, { signal: streamController.signal });
       if (response.status === 401) {
         close();
         void onExpired?.();
@@ -118,8 +131,8 @@ function createBearerApi({ onSnapshot, onConnection, onExpired, onRoomClosed }, 
         void onRoomClosed?.(id);
         return;
       }
-      await readEventStream(response, { signal, onEvent: (e) => {
-        if (generation !== serial) return;
+      await readEventStream(response, { signal: streamController.signal, onActivity: activity, onEvent: (e) => {
+        if (generation !== serial || signal.aborted || streamController.signal.aborted) return;
         try {
           const data = JSON.parse(e.data);
           if (e.type === "expired") {
@@ -139,6 +152,9 @@ function createBearerApi({ onSnapshot, onConnection, onExpired, onRoomClosed }, 
       } });
     } catch {
       if (!signal.aborted) onConnection(false);
+    } finally {
+      clearTimeout(idleTimer);
+      signal.removeEventListener("abort", cancelStream);
     }
     if (generation === serial && !document.hidden && !signal.aborted) {
       timer = setTimeout(async () => {
@@ -1055,6 +1071,7 @@ async function createPassage(roomId, resources, h) {
     node.dataset.paused = String(paused);
     caption.textContent = frame.text || "";
     pause.textContent = paused ? "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C" : "\u041F\u0430\u0443\u0437\u0430";
+    if (resources.sky2 && frame.scene === "warning") caption.textContent = caption.textContent.replace(/ Пройдите через Врата Солнца\.$/, "");
     if (shadowLink) {
       shadowLink.disabled = frame.scene !== "warning";
       if (frame.scene !== "warning") {
