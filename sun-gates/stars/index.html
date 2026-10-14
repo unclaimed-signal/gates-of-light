@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="noindex, nofollow">
+  <title></title>
+  <style>
+    html,body{margin:0;width:100%;height:100%;background:#000 url('./assets/starfield.svg') center/cover no-repeat fixed;color-scheme:dark;overflow:hidden}
+    body{min-height:100vh;min-height:100svh}
+    #sky{position:fixed;inset:0;isolation:isolate}
+    #sky::before,#sky::after{content:'';position:absolute;inset:-12px;z-index:-1;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%201000%22%3E%3Cg%20fill%3D%22%23dce8ff%22%3E%3Ccircle%20cx%3D%22344%22%20cy%3D%2286%22%20r%3D%220.47%22%20opacity%3D%220.88%22%2F%3E%3Ccircle%20cx%3D%22727%22%20cy%3D%22489%22%20r%3D%220.82%22%20opacity%3D%220.68%22%2F%3E%3Ccircle%20cx%3D%22546%22%20cy%3D%22241%22%20r%3D%220.76%22%20opacity%3D%220.49%22%2F%3E%3Ccircle%20cx%3D%22927%22%20cy%3D%22278%22%20r%3D%220.57%22%20opacity%3D%220.40%22%2F%3E%3Ccircle%20cx%3D%22654%22%20cy%3D%2236%22%20r%3D%220.71%22%20opacity%3D%220.65%22%2F%3E%3Ccircle%20cx%3D%221172%22%20cy%3D%22537%22%20r%3D%221.10%22%20opacity%3D%220.89%22%2F%3E%3Ccircle%20cx%3D%22701%22%20cy%3D%22578%22%20r%3D%221.16%22%20opacity%3D%220.88%22%2F%3E%3Ccircle%20cx%3D%22806%22%20cy%3D%22533%22%20r%3D%221.16%22%20opacity%3D%220.87%22%2F%3E%3Ccircle%20cx%3D%221128%22%20cy%3D%22544%22%20r%3D%220.55%22%20opacity%3D%220.64%22%2F%3E%3Ccircle%20cx%3D%2219%22%20cy%3D%22113%22%20r%3D%221.16%22%20opacity%3D%220.72%22%2F%3E%3Ccircle%20cx%3D%221585%22%20cy%3D%22350%22%20r%3D%221.15%22%20opacity%3D%220.77%22%2F%3E%3Ccircle%20cx%3D%221287%22%20cy%3D%22415%22%20r%3D%220.76%22%20opacity%3D%220.74%22%2F%3E%3Ccircle%20cx%3D%221009%22%20cy%3D%22892%22%20r%3D%221.04%22%20opacity%3D%220.74%22%2F%3E%3Ccircle%20cx%3D%22914%22%20cy%3D%22136%22%20r%3D%220.96%22%20opacity%3D%220.68%22%2F%3E%3Ccircle%20cx%3D%22627%22%20cy%3D%22842%22%20r%3D%220.78%22%20opacity%3D%220.77%22%2F%3E%3Ccircle%20cx%3D%221066%22%20cy%3D%22358%22%20r%3D%220.53%22%20opacity%3D%220.55%22%2F%3E%3Ccircle%20cx%3D%22236%22%20cy%3D%22510%22%20r%3D%221.07%22%20opacity%3D%220.36%22%2F%3E%3Ccircle%20cx%3D%22721%22%20cy%3D%22945%22%20r%3D%221.21%22%20opacity%3D%220.76%22%2F%3E%3Ccircle%20cx%3D%22601%22%20cy%3D%22270%22%20r%3D%220.59%22%20opacity%3D%220.47%22%2F%3E%3Ccircle%20cx%3D%22704%22%20cy%3D%22494%22%20r%3D%221.24%22%20opacity%3D%220.65%22%2F%3E%3Ccircle%20cx%3D%22742%22%20cy%3D%22541%22%20r%3D%221.01%22%20opacity%3D%220.92%22%2F%3E%3Ccircle%20cx%3D%22428%22%20cy%3D%22854%22%20r%3D%221.11%22%20opacity%3D%220.48%22%2F%3E%3Ccircle%20cx%3D%221326%22%20cy%3D%22343%22%20r%3D%221.07%22%20opacity%3D%220.86%22%2F%3E%3Ccircle%20cx%3D%22736%22%20cy%3D%22210%22%20r%3D%221.01%22%20opacity%3D%220.63%22%2F%3E%3Ccircle%20cx%3D%221357%22%20cy%3D%22403%22%20r%3D%221.29%22%20opacity%3D%220.45%22%2F%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%22719%22%20r%3D%221.15%22%20opacity%3D%220.70%22%2F%3E%3Ccircle%20cx%3D%22967%22%20cy%3D%22828%22%20r%3D%221.17%22%20opacity%3D%220.78%22%2F%3E%3Ccircle%20cx%3D%221365%22%20cy%3D%22719%22%20r%3D%220.64%22%20opacity%3D%220.56%22%2F%3E%3Ccircle%20cx%3D%22705%22%20cy%3D%22348%22%20r%3D%220.97%22%20opacity%3D%220.85%22%2F%3E%3Ccircle%20cx%3D%221485%22%20cy%3D%22497%22%20r%3D%220.83%22%20opacity%3D%220.71%22%2F%3E%3Ccircle%20cx%3D%22533%22%20cy%3D%22108%22%20r%3D%221.18%22%20opacity%3D%220.56%22%2F%3E%3Ccircle%20cx%3D%22565%22%20cy%3D%22615%22%20r%3D%220.50%22%20opacity%3D%220.42%22%2F%3E%3Ccircle%20cx%3D%22107%22%20cy%3D%2232%22%20r%3D%220.55%22%20opacity%3D%220.73%22%2F%3E%3Ccircle%20cx%3D%22307%22%20cy%3D%22810%22%20r%3D%220.61%22%20opacity%3D%220.61%22%2F%3E%3Ccircle%20cx%3D%22378%22%20cy%3D%22746%22%20r%3D%221.23%22%20opacity%3D%220.83%22%2F%3E%3Ccircle%20cx%3D%22181%22%20cy%3D%22439%22%20r%3D%220.81%22%20opacity%3D%220.76%22%2F%3E%3Ccircle%20cx%3D%2277%22%20cy%3D%2268%22%20r%3D%220.51%22%20opacity%3D%220.83%22%2F%3E%3Ccircle%20cx%3D%221375%22%20cy%3D%22508%22%20r%3D%220.50%22%20opacity%3D%220.77%22%2F%3E%3Ccircle%20cx%3D%221505%22%20cy%3D%2251%22%20r%3D%220.75%22%20opacity%3D%220.79%22%2F%3E%3Ccircle%20cx%3D%22828%22%20cy%3D%22241%22%20r%3D%221.01%22%20opacity%3D%220.91%22%2F%3E%3Ccircle%20cx%3D%2226%22%20cy%3D%22597%22%20r%3D%220.79%22%20opacity%3D%220.46%22%2F%3E%3Ccircle%20cx%3D%22976%22%20cy%3D%22231%22%20r%3D%221.18%22%20opacity%3D%220.69%22%2F%3E%3Ccircle%20cx%3D%22457%22%20cy%3D%22634%22%20r%3D%221.29%22%20opacity%3D%220.64%22%2F%3E%3Ccircle%20cx%3D%221590%22%20cy%3D%22141%22%20r%3D%220.93%22%20opacity%3D%220.81%22%2F%3E%3Ccircle%20cx%3D%221159%22%20cy%3D%22846%22%20r%3D%220.97%22%20opacity%3D%220.54%22%2F%3E%3Ccircle%20cx%3D%22918%22%20cy%3D%22972%22%20r%3D%220.81%22%20opacity%3D%220.81%22%2F%3E%3Ccircle%20cx%3D%22226%22%20cy%3D%22977%22%20r%3D%220.78%22%20opacity%3D%220.40%22%2F%3E%3Ccircle%20cx%3D%221323%22%20cy%3D%22894%22%20r%3D%221.00%22%20opacity%3D%220.50%22%2F%3E%3Ccircle%20cx%3D%221378%22%20cy%3D%22690%22%20r%3D%220.63%22%20opacity%3D%220.66%22%2F%3E%3Ccircle%20cx%3D%22229%22%20cy%3D%22639%22%20r%3D%220.48%22%20opacity%3D%220.75%22%2F%3E%3Ccircle%20cx%3D%22349%22%20cy%3D%22992%22%20r%3D%220.68%22%20opacity%3D%220.56%22%2F%3E%3Ccircle%20cx%3D%221553%22%20cy%3D%22452%22%20r%3D%220.86%22%20opacity%3D%220.71%22%2F%3E%3Ccircle%20cx%3D%221379%22%20cy%3D%22218%22%20r%3D%221.22%22%20opacity%3D%220.89%22%2F%3E%3Ccircle%20cx%3D%221256%22%20cy%3D%22616%22%20r%3D%221.01%22%20opacity%3D%220.55%22%2F%3E%3Ccircle%20cx%3D%221406%22%20cy%3D%22583%22%20r%3D%221.05%22%20opacity%3D%220.92%22%2F%3E%3Ccircle%20cx%3D%221376%22%20cy%3D%22524%22%20r%3D%220.47%22%20opacity%3D%220.51%22%2F%3E%3Ccircle%20cx%3D%221154%22%20cy%3D%22292%22%20r%3D%221.30%22%20opacity%3D%220.61%22%2F%3E%3Ccircle%20cx%3D%221370%22%20cy%3D%22329%22%20r%3D%220.68%22%20opacity%3D%220.71%22%2F%3E%3Ccircle%20cx%3D%221525%22%20cy%3D%22212%22%20r%3D%220.91%22%20opacity%3D%220.62%22%2F%3E%3Ccircle%20cx%3D%22358%22%20cy%3D%22142%22%20r%3D%221.20%22%20opacity%3D%220.94%22%2F%3E%3Ccircle%20cx%3D%221290%22%20cy%3D%22112%22%20r%3D%221.02%22%20opacity%3D%220.38%22%2F%3E%3Ccircle%20cx%3D%22659%22%20cy%3D%22805%22%20r%3D%220.62%22%20opacity%3D%220.45%22%2F%3E%3Ccircle%20cx%3D%22878%22%20cy%3D%22457%22%20r%3D%220.98%22%20opacity%3D%220.59%22%2F%3E%3Ccircle%20cx%3D%221435%22%20cy%3D%22219%22%20r%3D%221.01%22%20opacity%3D%220.87%22%2F%3E%3Ccircle%20cx%3D%221069%22%20cy%3D%22776%22%20r%3D%220.69%22%20opacity%3D%220.76%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%22237%22%20r%3D%220.80%22%20opacity%3D%220.69%22%2F%3E%3Ccircle%20cx%3D%221382%22%20cy%3D%22578%22%20r%3D%220.59%22%20opacity%3D%220.58%22%2F%3E%3Ccircle%20cx%3D%221016%22%20cy%3D%22119%22%20r%3D%220.67%22%20opacity%3D%220.61%22%2F%3E%3Ccircle%20cx%3D%221369%22%20cy%3D%22844%22%20r%3D%221.06%22%20opacity%3D%220.54%22%2F%3E%3Ccircle%20cx%3D%22918%22%20cy%3D%22547%22%20r%3D%221.16%22%20opacity%3D%220.54%22%2F%3E%3Ccircle%20cx%3D%221%22%20cy%3D%2276%22%20r%3D%220.47%22%20opacity%3D%220.38%22%2F%3E%3Ccircle%20cx%3D%221476%22%20cy%3D%22209%22%20r%3D%220.63%22%20opacity%3D%220.78%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center/cover no-repeat;opacity:.5}
+    #sky::before{animation:depth-near 12.8s ease-in-out -4s infinite alternate,twinkle 3s ease-in-out -1s infinite alternate}
+    #sky::after{background-size:112% 112%;animation:depth-far 20s ease-in-out -9.6s infinite alternate,twinkle 4.5s ease-in-out -2.4s infinite alternate;opacity:.3}
+    .spark{position:absolute;left:var(--x);top:var(--y);width:2px;height:2px;border-radius:50%;background:#e6edff;box-shadow:0 0 7px 2px #8dacda66;pointer-events:none;animation:spark 3.4s ease-in-out var(--t) infinite alternate}
+    .spark::after{content:'';position:absolute;inset:-4px;background:linear-gradient(transparent 44%,#c9e3ff66 49% 51%,transparent 56%),linear-gradient(90deg,transparent 44%,#c9e3ff66 49% 51%,transparent 56%);pointer-events:none}
+    .spark:nth-of-type(3n){animation-duration:4.9s}.spark:nth-of-type(3n + 1){animation-duration:2.9s}
+    @keyframes spark{from{opacity:.18;transform:scale(.6)}to{opacity:.95;transform:scale(1.25)}}
+    .point{position:absolute;width:44px;height:44px;transform:translate(-50%,-50%);color:var(--light);background:transparent;outline-offset:5px;border-radius:50%;-webkit-tap-highlight-color:transparent}
+    .point::before,.point::after{content:'';position:absolute;pointer-events:none}
+    .point::before{width:5px;height:5px;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border-radius:50%;box-shadow:0 0 5px 2px var(--light),0 0 13px 4px var(--light);animation:breathe 4.8s ease-in-out infinite alternate}
+    .point::after{inset:3px;background:radial-gradient(ellipse,currentColor,transparent 65%);opacity:.25;animation:halo 6.4s ease-in-out infinite alternate}
+    .p1{left:17%;top:50%;--light:#ef394b;cursor:pointer}
+    .p2{left:50%;top:17%;--light:#af67ff;cursor:pointer}
+    .p3{left:83%;top:50%;--light:#ffd982;cursor:pointer}
+    .p4{left:50%;top:83%;--light:#52df94}
+    .p1::before{animation-duration:4.6s}.p2::before,.p2::after{animation-delay:-1.6s;animation-duration:7.2s}.p3::before{width:7px;height:7px;animation-delay:-3.2s}.p3::after{animation-delay:-2.4s;animation-duration:8.8s}.p4::before,.p4::after{animation-delay:-.8s;animation-duration:5.6s}
+    #view{--image:url('./assets/sun.jpg');--rays:255,218,141;--halo:198,113,29}
+    #view-2{--image:url('./assets/inferno.jpg');--rays:235,43,58;--halo:130,20,31}
+    #view-3{--image:url('./assets/imagination.png');--rays:181,141,255;--halo:82,36,126}
+    .art{position:fixed;inset:0;z-index:2;background:#000 var(--image) center/cover no-repeat;visibility:hidden;opacity:0;transition:opacity .6s ease,visibility .6s;cursor:default;overflow:hidden;-webkit-tap-highlight-color:transparent}
+    .art:target{visibility:visible;opacity:1}
+    .art-back{position:absolute;inset:0;z-index:1;cursor:default;-webkit-tap-highlight-color:transparent}
+    .star-core{position:absolute;left:50%;top:50%;width:clamp(64px,24vmin,160px);height:clamp(64px,24vmin,160px);transform:translate(-50%,-50%);border-radius:50%;clip-path:circle(50%);z-index:3;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .star-core:focus-visible{outline:1px solid rgba(255,240,205,.6);outline-offset:-4px}
+    .art::after{content:'';position:absolute;inset:-6%;pointer-events:none;opacity:.14;background:repeating-conic-gradient(from 12deg,transparent 0deg 9deg,rgba(var(--rays),.55) 12deg,transparent 16deg 31deg),radial-gradient(ellipse at center,transparent 24%,rgba(var(--halo),.28) 48%,transparent 73%);mask-image:radial-gradient(ellipse,transparent 15%,#000 38%,transparent 85%);animation:drift 14.4s ease-in-out -4s infinite alternate,corona 2.7s ease-in-out -.8s infinite alternate;animation-play-state:paused}
+    .sky-wash{position:absolute;inset:-12px;pointer-events:none;background:url('./assets/starfield.svg') center/cover no-repeat;mix-blend-mode:screen;mask-image:radial-gradient(ellipse at center,transparent 25%,#000 65%);opacity:.7;animation:depth-far 16.8s ease-in-out -6.4s infinite alternate,twinkle 3.8s ease-in-out -1.6s infinite alternate;animation-play-state:paused}
+    .art:target .sky-wash{animation-play-state:running}
+    .art:target::after{animation-play-state:running}
+    #view-2::after{animation-duration:19.2s,3.7s;animation-delay:-6.4s,-1.6s;opacity:.1}
+    .comet{position:absolute;left:-15%;top:8%;width:clamp(60px,8vw,116px);height:2px;pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent,#8ab7e94d 40%,#e6f5ff 100%);border-radius:100%;animation:comet-pass 28s linear infinite}
+    .comet::after{content:'';position:absolute;right:0;top:-1px;width:4px;height:4px;border-radius:50%;background:#ecf9ff;box-shadow:0 0 6px 2px #b9dfff99;pointer-events:none}
+    @keyframes comet-pass{0%,7%{opacity:0;transform:translate(-12vw,-8vh) rotate(20deg)}9%{opacity:.75;transform:translate(0,0) rotate(20deg)}17%{opacity:.65;transform:translate(90vw,30vh) rotate(20deg)}19%,100%{opacity:0;transform:translate(125vw,42vh) rotate(20deg)}}
+    .art .comet{animation-play-state:paused}
+    .art:target .comet{animation-play-state:running}
+    body:has(.art:target) #sky>.comet{animation-play-state:paused}
+    body:has(.art:target) .spark{animation-play-state:paused}
+    body:has(.art:target) #sky::before,body:has(.art:target) #sky::after,body:has(.art:target) .point::before,body:has(.art:target) .point::after{animation-play-state:paused}
+    @keyframes breathe{from{opacity:.66;transform:translate(-50%,-50%) scale(.94)}to{opacity:1;transform:translate(-50%,-50%) scale(1.04)}}
+    @keyframes halo{from{opacity:.16;transform:scale(.85)}to{opacity:.34;transform:scale(1.12)}}
+    @keyframes depth-near{from{transform:translate(-11px,7px)}to{transform:translate(11px,-7px)}}
+    @keyframes depth-far{from{transform:translate(10px,-7px)}to{transform:translate(-10px,7px)}}
+    @keyframes twinkle{from{opacity:.3}to{opacity:.85}}
+    @keyframes drift{from{transform:rotate(-10deg) scale(1.01)}to{transform:rotate(10deg) scale(1.03)}}
+    @keyframes corona{from{opacity:.1}to{opacity:.42}}
+    @media(orientation:portrait){
+      .art{background:radial-gradient(ellipse at center,rgba(var(--halo),.2),transparent 70%),#000 url('./assets/starfield.svg') center/cover no-repeat}
+      .art::before{content:'';position:absolute;left:0;right:0;top:50%;height:54svh;transform:translateY(-50%);background:var(--image) center/auto 100% no-repeat;mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);pointer-events:none}
+    }
+    @media(prefers-reduced-motion:reduce){#sky::before,#sky::after,.point::before,.point::after,.art::after,.spark,.sky-wash,.comet{animation:none}.comet{opacity:0}.art{transition:none}}
+  </style>
+</head>
+<body>
+  <main id="sky" aria-label="Звёздное небо">
+    <span class="comet" aria-hidden="true"></span>
+    <a class="point p1" href="#view-2" aria-label="Звезда"></a>
+    <a class="point p2" href="#view-3" aria-label="Фиолетовая звезда"></a>
+    <a class="point p3" href="#view" aria-label="Звезда"></a>
+    <span class="point p4" aria-hidden="true"></span>
+    <span class="spark" style="--x:12%;--y:9%;--t:-1s" aria-hidden="true"></span>
+    <span class="spark" style="--x:31%;--y:27%;--t:-3s" aria-hidden="true"></span>
+    <span class="spark" style="--x:72%;--y:11%;--t:-2s" aria-hidden="true"></span>
+    <span class="spark" style="--x:88%;--y:31%;--t:-4s" aria-hidden="true"></span>
+    <span class="spark" style="--x:8%;--y:72%;--t:-5s" aria-hidden="true"></span>
+    <span class="spark" style="--x:26%;--y:88%;--t:-2s" aria-hidden="true"></span>
+    <span class="spark" style="--x:66%;--y:91%;--t:-4s" aria-hidden="true"></span>
+    <span class="spark" style="--x:87%;--y:77%;--t:-1s" aria-hidden="true"></span>
+    <span class="spark" style="--x:61%;--y:39%;--t:-3s" aria-hidden="true"></span>
+    <span class="spark" style="--x:43%;--y:63%;--t:-5s" aria-hidden="true"></span>
+    <span class="spark" style="--x:16%;--y:35%;--t:-2s" aria-hidden="true"></span>
+    <span class="spark" style="--x:71%;--y:64%;--t:-4s" aria-hidden="true"></span>
+  </main>
+  <div id="view" class="art"><a class="art-back" href="#sky" aria-label="Вернуться к звёздам"></a><span class="sky-wash" aria-hidden="true"><span class="comet"></span></span><a class="star-core" href="../" aria-label="Продолжить"></a></div>
+  <div id="view-2" class="art"><a class="art-back" href="#sky" aria-label="Вернуться к звёздам"></a><span class="sky-wash" aria-hidden="true"><span class="comet"></span></span><a class="star-core" href="https://unclaimed-signal.github.io/gate-without-hope/#gate" aria-label="Продолжить"></a></div>
+  <div id="view-3" class="art"><a class="art-back" href="#sky" aria-label="Вернуться к звёздам"></a><span class="sky-wash" aria-hidden="true"><span class="comet"></span></span></div>
+</body>
+</html>
